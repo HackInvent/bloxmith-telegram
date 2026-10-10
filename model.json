@@ -1,0 +1,166 @@
+{
+  "kind": "telegram",
+  "version": "0.1.0",
+  "title": "Telegram",
+  "description": "Send messages and receive updates with a Telegram bot.",
+  "repository_url": "https://github.com/HackInvent/bloxmith-telegram",
+  "bloxsmith_compatibility": [
+    "1.0.9"
+  ],
+  "tested_with_bloxsmith": "1.0.9",
+  "prerequisites": [
+    {
+      "type": "manual",
+      "name": "Linux/POSIX with Python 3.10+ and TLS support, a Telegram bot token from BotFather stored in the BloxSmith wallet, and outbound HTTPS access to api.telegram.org."
+    }
+  ],
+  "locales": {
+    "en": "locales/en.json",
+    "fr": "locales/fr.json"
+  },
+  "ports": {
+    "inputs": [
+      {
+        "id": 1,
+        "name": "message",
+        "title": "message",
+        "accepts": [
+          "text/plain",
+          "application/json",
+          "message/*"
+        ],
+        "multiplicity": "one",
+        "required": false,
+        "execution_requirement": "not_required_for_execution"
+      },
+      {
+        "id": 2,
+        "name": "file",
+        "title": "file",
+        "accepts": [
+          "file/path",
+          "text/plain",
+          "application/json",
+          "message/*"
+        ],
+        "multiplicity": "one",
+        "required": false,
+        "execution_requirement": "not_required_for_execution"
+      }
+    ],
+    "outputs": [
+      {
+        "id": 1,
+        "name": "received",
+        "title": "received",
+        "emits": [
+          "application/json",
+          "message/*"
+        ],
+        "multiplicity": "many"
+      },
+      {
+        "id": 2,
+        "name": "sent",
+        "title": "sent",
+        "emits": [
+          "application/json",
+          "message/*"
+        ],
+        "multiplicity": "many"
+      },
+      {
+        "id": 3,
+        "name": "error",
+        "title": "error",
+        "emits": [
+          "application/json",
+          "message/*"
+        ],
+        "multiplicity": "many"
+      }
+    ]
+  },
+  "config": {
+    "enabled": false,
+    "secret_ref": "",
+    "allowed_chat_ids": [],
+    "default_chat_id": "",
+    "parse_mode": "none",
+    "disable_notification": false,
+    "disable_link_preview": false,
+    "receive_updates": false,
+    "update_types": [
+      "message"
+    ],
+    "file_root": "",
+    "file_mode": "auto",
+    "timeout_sec": 30,
+    "poll_timeout_sec": 25,
+    "poll_limit": 20,
+    "max_updates_per_minute": 30,
+    "max_file_bytes": 10485760,
+    "max_response_bytes": 1048576,
+    "max_retries": 2,
+    "max_retry_wait_sec": 20,
+    "api_base_url": "https://api.telegram.org",
+    "ca_file": ""
+  },
+  "port_capabilities": {
+    "can_add_inputs": false,
+    "can_add_outputs": false
+  },
+  "runtime": {
+    "initial_state": "waiting",
+    "runtime_executable": true,
+    "active_worker": true,
+    "centralized_executor": "generic",
+    "centralized_dependency_mode": "any_event",
+    "active_execution_policy": "on_each_event",
+    "file_browser": true
+  },
+  "ui_assets": {
+    "modal": [
+      {
+        "kind": "css",
+        "path": "assets/css/properties.css"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/properties.js"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/settings.js"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/block_modal.js"
+      }
+    ],
+    "inspector_panel": [
+      {
+        "kind": "css",
+        "path": "assets/css/properties.css"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/properties.js"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/settings.js"
+      },
+      {
+        "kind": "js",
+        "path": "assets/js/inspector_panel.js"
+      }
+    ],
+    "node_card": [
+      {
+        "kind": "css",
+        "path": "assets/css/node_card.css"
+      }
+    ]
+  }
+}

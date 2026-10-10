@@ -1,0 +1,161 @@
+[
+  {
+    "key": "enabled",
+    "type": "boolean",
+    "label": "Enable remote access",
+    "help": "Off by default. While off, nothing is sent and no update is polled."
+  },
+  {
+    "key": "secret_ref",
+    "label": "Bot token secret",
+    "placeholder": "secret://workspace/telegram_bot",
+    "help": "Wallet reference holding the bot token from BotFather, never the token itself."
+  },
+  {
+    "key": "allowed_chat_ids",
+    "type": "json",
+    "rows": 2,
+    "label": "Allowed chat IDs",
+    "help": "JSON array of numeric chat IDs, e.g. [123456789, -1001234567890]. Sends to other chats are refused and their updates are dropped."
+  },
+  {
+    "key": "default_chat_id",
+    "label": "Default chat ID",
+    "placeholder": "123456789",
+    "help": "Chat used when an input gives no chat_id. It must also be allowed. Leave empty to require chat_id."
+  },
+  {
+    "key": "parse_mode",
+    "type": "select",
+    "options": ["none", "MarkdownV2", "HTML"],
+    "label": "Text formatting",
+    "help": "none sends plain text. MarkdownV2 and HTML require Telegram's escaping rules; invalid markup is rejected by Telegram."
+  },
+  {
+    "key": "file_root",
+    "type": "directory",
+    "label": "Shareable files directory",
+    "help": "Only regular files inside this directory can be sent from the file input. Empty disables file sending."
+  },
+  {
+    "key": "file_mode",
+    "type": "select",
+    "options": ["auto", "document", "photo"],
+    "label": "File send mode",
+    "help": "auto sends JPEG/PNG files up to 10 MiB as photos and everything else as documents."
+  },
+  {
+    "key": "receive_updates",
+    "type": "boolean",
+    "label": "Receive messages",
+    "help": "Active Runtime only: long-poll getUpdates from Run until Stop. One Shot never polls."
+  },
+  {
+    "key": "update_types",
+    "type": "json",
+    "rows": 2,
+    "group": "receive",
+    "label": "Update types",
+    "help": "Subset of [\"message\", \"edited_message\", \"channel_post\", \"edited_channel_post\"]. Other update types are dropped."
+  },
+  {
+    "key": "poll_timeout_sec",
+    "type": "integer",
+    "min": 1,
+    "max": 50,
+    "group": "receive",
+    "label": "Long-poll wait (s)",
+    "help": "Seconds Telegram may hold one getUpdates call open when no message is waiting."
+  },
+  {
+    "key": "disable_notification",
+    "type": "boolean",
+    "advanced": true,
+    "label": "Send silently",
+    "help": "Default for sent messages and files; recipients get no notification sound."
+  },
+  {
+    "key": "disable_link_preview",
+    "type": "boolean",
+    "advanced": true,
+    "label": "Disable link previews",
+    "help": "Default for sent text messages."
+  },
+  {
+    "key": "timeout_sec",
+    "type": "integer",
+    "min": 5,
+    "max": 300,
+    "advanced": true,
+    "label": "Send deadline (s)",
+    "help": "Total time for one send, including upload and retries after HTTP 429. Ambiguous sends are never retried."
+  },
+  {
+    "key": "max_retries",
+    "type": "integer",
+    "min": 0,
+    "max": 5,
+    "advanced": true,
+    "label": "Retries after HTTP 429",
+    "help": "Only rate-limited sends, which Telegram did not process, are retried."
+  },
+  {
+    "key": "max_retry_wait_sec",
+    "type": "integer",
+    "min": 1,
+    "max": 120,
+    "advanced": true,
+    "label": "Longest retry wait (s)",
+    "help": "A retry_after above this value returns a rate_limited error instead of waiting."
+  },
+  {
+    "key": "max_file_bytes",
+    "type": "integer",
+    "min": 1024,
+    "max": 52428800,
+    "advanced": true,
+    "label": "File size limit (bytes)",
+    "help": "Upper bound for one uploaded file; Telegram accepts at most 50 MiB for documents and 10 MiB for photos."
+  },
+  {
+    "key": "max_response_bytes",
+    "type": "integer",
+    "min": 65536,
+    "max": 8388608,
+    "advanced": true,
+    "label": "Response size limit (bytes)",
+    "help": "Larger Telegram responses are refused as protocol errors."
+  },
+  {
+    "key": "poll_limit",
+    "type": "integer",
+    "min": 1,
+    "max": 100,
+    "advanced": true,
+    "group": "receive",
+    "label": "Updates per poll",
+    "help": "Page size of one getUpdates call. Following pages are fetched with the next offset."
+  },
+  {
+    "key": "max_updates_per_minute",
+    "type": "integer",
+    "min": 1,
+    "max": 120,
+    "advanced": true,
+    "group": "receive",
+    "label": "Published updates per minute",
+    "help": "Bursts of up to 10. Extra messages stay on Telegram (24 hours at most) until the budget allows them."
+  },
+  {
+    "key": "api_base_url",
+    "advanced": true,
+    "label": "Bot API origin",
+    "help": "Keep https://api.telegram.org. Another HTTPS origin receives the bot token; plain HTTP is accepted only for a loopback test host."
+  },
+  {
+    "key": "ca_file",
+    "advanced": true,
+    "label": "Custom CA file",
+    "help": "Optional absolute PEM file for a privately signed HTTPS origin. TLS verification cannot be disabled."
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "telegram",
+  "block_version": "0.1.0",
+  "maintained_by": "HackInvent",
+  "source": {
+    "algorithm": "block-source-v1",
+    "sha256": "0d1f983137c48fcd6eb4360a6e15d626af80f705a36604f3c4eb56af24db2cc6"
+  },
+  "bloxsmith_compatibility": [
+    "1.0.9"
+  ],
+  "tested_with_bloxsmith": "1.0.9",
+  "validations": [
+    {
+      "bloxsmith_version": "1.0.9",
+      "framework_commit": "f1a87f6369d2acfb8be41d23ea849384cd461c86",
+      "framework_source_sha256": "66e36a13fd9a23a0a0576ec81552d6e479671db6db9b8692cc7486c5aac4f3b8",
+      "tested_at": "2026-10-10T18:50:11.709875+00:00",
+      "status": "passed",
+      "installation_mode": "bundled",
+      "suite_paths": [
+        "tests/F5.01_telegram.py",
+        "tests/F5.02_telegram_runtime.py",
+        "tests/F8.01_telegram_ui.py"
+      ],
+      "suite_count": 3,
+      "report_sha256": "20e29c6cffd8b62cc4b7fd8835b2427608d37a88795ed5bf0ecd69c74ccd6d6a"
+    }
+  ]
+}
